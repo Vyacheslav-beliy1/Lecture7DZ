@@ -28,6 +28,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
                                     <connections>
                                         <outlet property="delegate" destination="BYZ-38-t0r" id="rnh-Kv-cG6"/>
@@ -145,8 +146,9 @@
                                     <outlet property="delegate" destination="J4o-lR-GD4" id="8DA-zn-kfA"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="baX-JM-63g">
-                                <rect key="frame" x="169" y="356" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="baX-JM-63g">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93333333333333335" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -159,7 +161,7 @@
                             <constraint firstItem="baX-JM-63g" firstAttribute="centerY" secondItem="j9A-1j-nFs" secondAttribute="centerY" id="x0T-tQ-1zf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ToDo List" id="4Vz-PO-pyn"/>
+                    <tabBarItem key="tabBarItem" title="ToDo List" image="shoping50" id="4Vz-PO-pyn"/>
                     <connections>
                         <outlet property="activityView" destination="baX-JM-63g" id="XEE-V8-ouO"/>
                         <outlet property="tasksTableView" destination="2hB-8a-H2s" id="TYB-d7-Z6v"/>
@@ -224,8 +226,9 @@
                                     <outlet property="delegate" destination="dvD-5Z-GRe" id="RwP-UE-MP5"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pba-tn-rsQ">
-                                <rect key="frame" x="169" y="332" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pba-tn-rsQ">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93333333333333335" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -238,7 +241,7 @@
                             <constraint firstItem="pba-tn-rsQ" firstAttribute="centerX" secondItem="0mq-hd-let" secondAttribute="centerX" id="mda-fU-Ddx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shopping List" id="pJc-mc-113"/>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="shoping50" id="pJc-mc-113"/>
                     <connections>
                         <outlet property="activityView" destination="pba-tn-rsQ" id="M8M-du-PZf"/>
                         <outlet property="tasksTableView" destination="tqY-jz-ge2" id="TMm-z8-jFk"/>
@@ -268,4 +271,7 @@
             <point key="canvasLocation" x="-1050" y="-747"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="shoping50" width="25" height="25"/>
+    </resources>
 </document>

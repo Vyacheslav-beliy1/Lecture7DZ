@@ -17,7 +17,7 @@ class Task: NSObject, NSCoding {
     //var identifier
     var title: String
     var isSelected: Bool
-    
+
     init(title:String) {
         self.title = title
         self.isSelected = false
@@ -29,8 +29,7 @@ class Task: NSObject, NSCoding {
     }
     
     required convenience init?(coder decoder: NSCoder) {
-        guard let title = decoder.decodeObject(forKey: "title") as? String
-            else { return nil }
+        guard let title = decoder.decodeObject(forKey: "title") as? String else { return nil }
         
         let isSelected = decoder.decodeBool(forKey: "isSelected")
         self.init(title: title,selected: isSelected)
