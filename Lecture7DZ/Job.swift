@@ -11,4 +11,8 @@ import CoreData
 
 class Job: NSManagedObject {
 
+    class func findOrCreateJob(with theJob:Task, context: NSManagedObjectContext)
+    {
+        
+    }
 }

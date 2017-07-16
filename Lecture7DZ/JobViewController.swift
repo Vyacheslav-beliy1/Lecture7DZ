@@ -11,6 +11,8 @@ import CoreData
 
 class JobViewController: TasksViewController {
 
+    var container:NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    
     override func viewDidLoad() {
         self.tasksType = .jobList
         super.viewDidLoad()
@@ -26,6 +28,8 @@ class JobViewController: TasksViewController {
     
     func updateDataBaseModel(with tasks: [Task])
     {
-        
+        container?.performBackgroundTask{ context in
+            //create User and Job
+        }
     }
 }
