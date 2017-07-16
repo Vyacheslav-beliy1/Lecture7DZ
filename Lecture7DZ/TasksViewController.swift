@@ -14,7 +14,7 @@ class TasksViewController: UIViewController {
     @IBOutlet weak var activityView: UIActivityIndicatorView!
     @IBOutlet weak var textField: UITextField!
     
-    var tasks: [Task]?
+    var tasks: [Task]! = []
     var tasksType: TasksType! = nil
 
     override func viewDidLoad() {
@@ -27,12 +27,10 @@ class TasksViewController: UIViewController {
         activityView.stopAnimating()
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func save(tasks: [Task]){
+        UserDefaultsDataBase.save(tasks: tasks,withType: tasksType)
     }
-
 }
 
 extension TasksViewController: UITableViewDataSource, UITableViewDelegate
@@ -103,12 +101,17 @@ extension TasksViewController: UITextFieldDelegate
             
             tasksTableView.endUpdates()
             
-            UserDefaultsDataBase.save(tasks: tasks!,withType: tasksType)
-            
-            
+            save(tasks: tasks)
         }
         textField.resignFirstResponder()
         
         return true
     }
 }
+
+
+
+
+
+
+

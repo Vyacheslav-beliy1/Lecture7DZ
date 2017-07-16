@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class JobViewController: TasksViewController {
 
@@ -15,5 +16,16 @@ class JobViewController: TasksViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func save(tasks: [Task]) {
+        super.save(tasks: tasks)
+        
+        updateDataBaseModel(with:tasks)
+    }
+    
+    func updateDataBaseModel(with tasks: [Task])
+    {
+        
     }
 }

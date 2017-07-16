@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jHX-t5-Mty">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Shopping List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ShoppingListViewControllerIdentifier" title="Shopping List" id="BYZ-38-t0r" customClass="TasksViewController" customModule="Lecture7DZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShoppingListViewControllerIdentifier" title="Shopping List" id="BYZ-38-t0r" customClass="JobViewController" customModule="Lecture7DZ" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -83,9 +83,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" id="opx-7g-ga7"/>
                     <connections>
-                        <outlet property="activityView" destination="sva-WE-dlA" id="Oke-Um-ovy"/>
-                        <outlet property="tasksTableView" destination="jzX-5a-Iwp" id="fgs-do-mke"/>
-                        <outlet property="textField" destination="feu-dG-IU9" id="WjA-HS-ImJ"/>
+                        <outlet property="activityView" destination="sva-WE-dlA" id="ZzM-BM-Frg"/>
+                        <outlet property="tasksTableView" destination="jzX-5a-Iwp" id="xtN-oD-QLA"/>
+                        <outlet property="textField" destination="feu-dG-IU9" id="CGX-4f-SwE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
