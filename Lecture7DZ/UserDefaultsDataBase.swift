@@ -9,6 +9,7 @@
 enum TasksType: String{
     case toDoList
     case shopingList
+    case jobList
 }
 
 import Foundation
