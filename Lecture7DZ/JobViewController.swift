@@ -29,7 +29,73 @@ class JobViewController: TasksViewController {
     func updateDataBaseModel(with tasks: [Task])
     {
         container?.performBackgroundTask{ context in
-            //create User and Job
+            
+            for task in tasks {
+                _ = try? Job.findOrCreateJob(with: task, context: context)
+            }
+            
+            try? context.save()
+        }
+        printDataBaseInforamtion()
+    }
+    
+    func printDataBaseInforamtion()
+    {
+        if let context = container?.viewContext
+        {
+            context.perform {
+                let jobRequest: NSFetchRequest<Job> = Job.fetchRequest()
+                let userRequest: NSFetchRequest<User> = User.fetchRequest()
+                
+                if let jobsCount = (try? context.fetch(jobRequest))?.count
+                {
+                    print("Jobs = \(jobsCount)")
+                }
+                
+                if let usersCount = try? context.count(for: userRequest)
+                {
+                    print("User \(usersCount)")
+                }
+            }
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
