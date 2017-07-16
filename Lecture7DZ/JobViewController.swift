@@ -28,15 +28,17 @@ class JobViewController: TasksViewController {
     
     func updateDataBaseModel(with tasks: [Task])
     {
-        container?.performBackgroundTask{ context in
+        container?.performBackgroundTask{ [weak self] context in
             
             for task in tasks {
                 _ = try? Job.findOrCreateJob(with: task, context: context)
             }
             
             try? context.save()
+            
+            self?.printDataBaseInforamtion()
         }
-        printDataBaseInforamtion()
+        
     }
     
     func printDataBaseInforamtion()
@@ -44,6 +46,7 @@ class JobViewController: TasksViewController {
         if let context = container?.viewContext
         {
             context.perform {
+                
                 let jobRequest: NSFetchRequest<Job> = Job.fetchRequest()
                 let userRequest: NSFetchRequest<User> = User.fetchRequest()
                 
