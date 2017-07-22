@@ -31,6 +31,8 @@ class JobViewController: TasksViewController {
             
             if let jobs = try? context.fetch(jobRequest)
             {
+                print("Jobs = \(jobs.count)")
+                
                 for job in jobs
                 {
                     let task = Task(job: job)
@@ -50,6 +52,11 @@ class JobViewController: TasksViewController {
         if let context = container?.viewContext
         {
             _ = try? Job.delete(theJob: tasks[index], context: context)
+            
+            try? context.save()
+            
+            printDataBaseInforamtion()
+            
             tasks.remove(at: index)
         }
     }
@@ -58,6 +65,10 @@ class JobViewController: TasksViewController {
         if let context = container?.viewContext
         {
             _ = try? Job.update(theJob: task, context: context)
+            
+            try? context.save()
+            
+            printDataBaseInforamtion()
         }
     }
     
@@ -74,7 +85,6 @@ class JobViewController: TasksViewController {
             
             self?.printDataBaseInforamtion()
         }
-        
     }
     
     func printDataBaseInforamtion()
