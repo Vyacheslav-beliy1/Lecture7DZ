@@ -31,6 +31,16 @@ class TasksViewController: UIViewController {
     func save(tasks: [Task]){
         UserDefaultsDataBase.save(tasks: tasks,withType: tasksType)
     }
+    
+    func changeSelectionFor(task: Task) {
+        task.isSelected = !task.isSelected
+        UserDefaultsDataBase.save(tasks: tasks,withType: tasksType)
+    }
+    
+    func deleteTask(at index: Int) {
+        tasks.remove(at: index)
+        UserDefaultsDataBase.save(tasks: tasks,withType: tasksType)
+    }
 }
 
 extension TasksViewController: UITableViewDataSource, UITableViewDelegate
@@ -63,9 +73,8 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tasks![indexPath.row].isSelected = !tasks![indexPath.row].isSelected
         
-        UserDefaultsDataBase.save(tasks: tasks!,withType: tasksType)
+        changeSelectionFor(task: tasks[indexPath.row])
         
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: .middle)
@@ -78,8 +87,7 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tasks!.remove(at: indexPath.row)
-            UserDefaultsDataBase.save(tasks: tasks!,withType: tasksType)
+            deleteTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
