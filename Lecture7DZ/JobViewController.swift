@@ -21,9 +21,22 @@ class JobViewController: TasksViewController {
     }
     
     override func save(tasks: [Task]) {
-        super.save(tasks: tasks)
-        
         updateDataBaseModel(with:tasks)
+    }
+    
+    override func deleteTask(at index: Int) {
+        if let context = container?.viewContext
+        {
+            Job.delete(theJob: tasks[index], context: context)
+            tasks.remove(at: index)
+        }
+    }
+    
+    override func changeSelectionFor(task: Task) {
+        if let context = container?.viewContext
+        {
+            Job.update(theJob: task, context: context)
+        }
     }
     
     // MARK: CoreData
