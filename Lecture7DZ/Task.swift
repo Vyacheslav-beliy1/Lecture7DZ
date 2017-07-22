@@ -31,6 +31,13 @@ class Task: NSObject, NSCoding {
         self.identifier = identifier
     }
     
+    init(job:Job)
+    {
+        self.title = job.text ?? "text is not available"
+        self.isSelected = job.isSelected
+        self.identifier = job.identifier
+    }
+    
     required convenience init?(coder decoder: NSCoder) {
         guard let title = decoder.decodeObject(forKey: "title") as? String else { return nil }
         

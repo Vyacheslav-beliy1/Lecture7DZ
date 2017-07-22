@@ -20,6 +20,28 @@ class JobViewController: TasksViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func fetchTasks() -> [Task]? {
+        
+        //we can improve this line of code
+        var tasks: [Task] = []
+        
+        if let context = container?.viewContext
+        {
+            let jobRequest: NSFetchRequest<Job> = Job.fetchRequest()
+            
+            if let jobs = try? context.fetch(jobRequest)
+            {
+                for job in jobs
+                {
+                    let task = Task(job: job)
+                    tasks.append(task)
+                }
+            }
+        }
+        
+        return tasks;
+    }
+    
     override func save(tasks: [Task]) {
         updateDataBaseModel(with:tasks)
     }
@@ -27,7 +49,7 @@ class JobViewController: TasksViewController {
     override func deleteTask(at index: Int) {
         if let context = container?.viewContext
         {
-            Job.delete(theJob: tasks[index], context: context)
+            _ = try? Job.delete(theJob: tasks[index], context: context)
             tasks.remove(at: index)
         }
     }
@@ -35,7 +57,7 @@ class JobViewController: TasksViewController {
     override func changeSelectionFor(task: Task) {
         if let context = container?.viewContext
         {
-            Job.update(theJob: task, context: context)
+            _ = try? Job.update(theJob: task, context: context)
         }
     }
     

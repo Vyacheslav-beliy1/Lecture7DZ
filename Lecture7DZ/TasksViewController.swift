@@ -22,10 +22,14 @@ class TasksViewController: UIViewController {
 
         tasksTableView.tableFooterView = UIView()
         
-        tasks = UserDefaultsDataBase.fetchTasks(withType: tasksType)
-        
+        tasks = fetchTasks()
+
         activityView.stopAnimating()
         // Do any additional setup after loading the view.
+    }
+    
+    func fetchTasks() -> [Task]?{
+        return UserDefaultsDataBase.fetchTasks(withType: tasksType)
     }
     
     func save(tasks: [Task]){
