@@ -18,16 +18,15 @@ class Job: NSManagedObject {
         
         do
         {
-            if let matches = try? context.fetch(request)
-            {
-                if (matches.count > 0)
-                {
-                    assert(matches.count == 1, "Job is not unique for current identifier")
-                    return matches.first!
-                }
-            }
+            let matches = try context.fetch(request)
             
-        } catch
+            if (matches.count > 0)
+            {
+                assert(matches.count == 1, "Job is not unique for current identifier")
+                return matches.first!
+            }
+        }
+        catch
         {
             throw error
         }
